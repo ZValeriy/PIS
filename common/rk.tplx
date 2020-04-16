@@ -8,10 +8,10 @@
 
 ((* block packages *))
     \usepackage{fontspec}
-    \setsansfont{CMU Sans Serif}
-    \setmainfont{CMU Serif}
-    \setmonofont{CMU Typewriter Text}
-    % \setsansfont{Arial}
+    \setsansfont{Times New Roman}
+    \setmainfont{Times New Roman}
+    \setmonofont{Times New Roman}
+    % \setsansfont{Times New Roman}
     % \setmainfont{Times New Roman}
     % \setmonofont{Consolas}
 
@@ -88,7 +88,7 @@
         pdfauthor={((( nb.metadata.authors | join(', ', attribute='name') )))},%
         ((* endif *))%
         pdflang={ru-RU},
-        pdftitle={Лабораторная работа ((* if 'lab_number' in nb.metadata *))№((( nb.metadata.lab_number )))((* endif *)) по дисциплине «Методы машинного обучения»},
+        pdftitle={Рубежный контроль ((* if 'lab_number' in nb.metadata *))№((( nb.metadata.lab_number )))((* endif *)) по дисциплине «Методы машинного обучения»},
         pdfsubject={((( nb_title | escape_latex )))},
     }
 
@@ -108,6 +108,42 @@
 ((*- endblock title *))
 
 ((* block predoc *))
+\urlstyle{tt}
+    \begin{titlepage}
+    \begin{center}
+    \hrule\vspace{1em}\small
+    \bf Московский государственный технический университет им. Н.Э.\,Баумана\\
+    Кафедра <<Системы обработки информации и управления>>\\[1em]
+    \hrule
+    \end{center}
+
+    \vfill\vfill
+
+    \begin{center}
+    \Large Рубежный контроль №1\\
+    по~дисциплине\\{\LARGE<<Методы машинного обучения>>}\\
+    на~тему\\{\LARGE<<((( nb_title | escape_latex )))>>}
+    \end{center}
+
+    \vfill\vfill
+
+    ((*- set nb_author = nb.metadata.authors[0].name.split(" ") -*))
+
+    \noindent Выполнил:\\
+    студент группы ((( nb.metadata.group )))\\
+    ((( nb_author[0] ))) ((( nb_author[1:] | map("first") | join(".\,") ))).\\[1em]
+    \underline{\hspace{6cm}}
+
+    \vfill
+
+    \begin{center}
+    Москва~--- 2020~г.\\[1em]
+    \hrule
+    \end{center}
+    \end{titlepage}
+
+    \setcounter{page}{2}
+
 ((* endblock predoc *))
 
 ((* block bibliography *))

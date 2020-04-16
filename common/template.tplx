@@ -8,12 +8,12 @@
 
 ((* block packages *))
     \usepackage{fontspec}
-    \setsansfont{CMU Sans Serif}
-    \setmainfont{CMU Serif}
-    \setmonofont{CMU Typewriter Text}
-    % \setsansfont{Arial}
+    \setsansfont{Times New Roman}
+    \setmainfont{Times New Roman}
+    \setmonofont{Times New Roman}
+    % \setsansfont{Times New Roman}
     % \setmainfont{Times New Roman}
-    % \setmonofont{Consolas}
+    % \setmonofont{Times New Roman}
 
     \usepackage{polyglossia}
     \setmainlanguage{russian}
@@ -88,7 +88,7 @@
         pdfauthor={((( nb.metadata.authors | join(', ', attribute='name') )))},%
         ((* endif *))%
         pdflang={ru-RU},
-        pdftitle={Лабораторная работа ((* if 'lab_number' in nb.metadata *))((( nb.metadata.lab_number )))((* endif *)) по дисциплине «Методы машинного обучения»},
+        pdftitle={Лабораторная работа ((* if 'lab_number' in nb.metadata *))№((( nb.metadata.lab_number )))((* endif *)) по дисциплине «Методы машинного обучения»},
         pdfsubject={((( nb_title | escape_latex )))},
     }
 
@@ -120,9 +120,9 @@
     \vfill\vfill
 
     \begin{center}
-    \Large Лабораторная работа ((* if 'lab_number' in nb.metadata *))((( nb.metadata.lab_number )))((* endif *))\\
-    по~курсу\\{\LARGE<<Проектирование интеллектуальных систем>>}\\
-    Тема:\\{\LARGE<<((( nb_title | escape_latex )))>>}
+    \Large Лабораторная работа ((* if 'lab_number' in nb.metadata *))№((( nb.metadata.lab_number )))((* endif *))\\
+    по~дисциплине\\{\LARGE<<Методы машинного обучения>>}\\
+    на~тему\\{\LARGE<<((( nb_title | escape_latex )))>>}
     \end{center}
 
     \vfill\vfill
@@ -132,10 +132,6 @@
     \noindent Выполнил:\\
     студент группы ((( nb.metadata.group )))\\
     ((( nb_author[0] ))) ((( nb_author[1:] | map("first") | join(".\,") ))).\\[1em]
-    \underline{\hspace{6cm}}\\[2em]
-
-    \noindent Проверил:\\[1em]
-     \underline{\hspace{6cm}} \\
     \underline{\hspace{6cm}}
 
     \vfill
@@ -148,7 +144,6 @@
 
     \setcounter{page}{2}
 ((* endblock predoc *))
-
 ((* block bibliography *))
     \bibliographystyle{ugost2008}
     \bibliography{bib}
